@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101a1c" />
+  <title>Throne of Aegis — Benteng Utara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="world" aria-label="Peta kerajaan 3D"></canvas>
+    <div class="world-vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">♜</div><div><div class="eyebrow">TAHUN 1147 · MUSIM GUGUR</div><h1>THRONE <span>OF AEGIS</span></h1></div></div>
+      <div class="resources">
+        <div class="resource"><span class="res-icon food">✦</span><div><b id="food">180</b><small>GANDUM</small></div><i id="food-rate">+4/mnt</i></div>
+        <div class="resource"><span class="res-icon gold">◈</span><div><b id="gold">260</b><small>EMAS</small></div><i id="gold-rate">+3/mnt</i></div>
+        <div class="resource"><span class="res-icon stone">⬟</span><div><b id="stone">145</b><small>BATU</small></div><i>+2/mnt</i></div>
+        <div class="resource"><span class="res-icon iron">◆</span><div><b id="iron">85</b><small>BESI</small></div><i>+1/mnt</i></div>
+      </div>
+      <button class="profile" id="saveBtn" title="Simpan permainan"><span>♔</span><div><b>Raja Aldric</b><small>Dinasti Aegis</small></div><em>⌄</em></button>
+    </header>
+
+    <section class="left-rail">
+      <div class="season-card panel-glass"><div class="tiny-label">WILAYAH ANDA</div><div class="realm-title"><span class="realm-crest">♜</span><div><b>Benteng Utara</b><small>Kerajaan Aegis · Lv. 2</small></div></div><div class="realm-stats"><span>◉ 1.240</span><span>⌖ 3 / 8 wilayah</span></div><div class="divider"></div><div class="morale-row"><span>Moral rakyat</span><b id="morale-label">82%</b></div><div class="meter"><i id="morale-meter" style="width:82%"></i></div><div class="fort-row"><span>Ketahanan benteng</span><b id="fort-label">100%</b></div><div class="meter fort-meter"><i id="fort-meter" style="width:100%"></i></div></div>
+      <div class="mission-card panel-glass"><div class="mission-head"><span class="mission-icon">✧</span><div><div class="tiny-label">MISI UTAMA</div><b>Satukan Lembah</b></div><span class="quest-count" id="territory-count">0/3</span></div><p>Perluas pengaruhmu dan lindungi rakyat dari ancaman utara.</p><div class="quest-line"><span class="check">✓</span><span>Bangun pertahanan benteng</span><b id="wall-quest">1/2</b></div><div class="quest-line"><span class="check">○</span><span>Kalahkan kerajaan tetangga</span><b id="conquer-quest">0/3</b></div></div>
+      <button class="intel-card panel-glass" id="intelBtn"><span class="intel-icon">◉</span><span><b>Laporan pengintai</b><small id="intel-copy">Perbatasan utara mulai gelisah…</small></span><i>↗</i></button>
+    </section>
+
+    <section class="right-rail">
+      <div class="panel-head"><div><div class="tiny-label">PUSAT KOMANDO</div><h2>Kerajaan</h2></div><button class="icon-btn" id="closeRail" aria-label="Tutup panel">×</button></div>
+      <div class="tab-row"><button class="tab active" data-tab="build">Bangun</button><button class="tab" data-tab="army">Pasukan</button><button class="tab" data-tab="research">Riset</button></div>
+      <div id="tab-content"></div>
+      <div class="panel-footer"><span class="green-dot"></span> Kerajaan berkembang dengan baik</div>
+    </section>
+
+    <div class="bottom-left"><div class="weather"><span>☀</span> CERAH <i></i> 18°C</div><div class="zoom-controls"><button id="zoomOut">−</button><span>PETA</span><button id="zoomIn">+</button></div></div>
+    <div class="bottom-center"><div class="battle-banner"><span class="banner-icon">⚑</span><div><b id="battle-title">Lembah Aegis aman</b><small id="battle-copy">Siapkan kerajaanmu untuk ancaman yang datang.</small></div><button id="battleBtn" class="battle-button">MULAI SERANGAN <span>→</span></button></div></div>
+    <div class="map-controls"><button id="centerBtn" title="Pusatkan peta">⌖</button><button id="soundBtn" title="Suara">♫</button><button id="helpBtn" title="Panduan">?</button></div>
+    <div id="toast" class="toast" role="status"></div>
+    <div id="modal" class="modal hidden"><div class="modal-card"><button id="modalClose" class="modal-close">×</button><div class="modal-icon">♜</div><div class="tiny-label">THRONE OF AEGIS</div><h2 id="modalTitle">Laporan Pengintai</h2><p id="modalBody"></p><button id="modalAction" class="primary-btn">Mengerti</button></div></div>
+    <div id="tooltip" class="map-tooltip hidden"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
